@@ -12,7 +12,8 @@
 
 module LayoutHelper
   def stylesheet(*args)
-    args.map { |arg| content_for(:stylesheets) { include_stylesheets(arg) } }
+    args.map { |arg| content_for(:stylesheets) { stylesheet_link_tag(arg) } }
+    return ""
   end
 
   def javascript(*args, &block)
@@ -22,5 +23,6 @@ module LayoutHelper
     if args
       args.map { |arg| content_for(:javascripts) { include_javascripts(arg) } }
     end
+    return ""
   end
 end
